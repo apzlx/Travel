@@ -1,0 +1,71 @@
+<head>
+  <title>April DemoApp 2017</title>
+</head>
+
+<template name="main">
+  <h1>Main page</h1>
+  {{> addperson}}
+  <hr>
+  {{> showpeople}}
+</template>
+
+<template name="about">
+  <h2>About this app</h2>
+  <h3>APPPPPP</h3>
+  {{>showpeople}}
+</template>
+
+
+<template name="info">
+  <h2>Info Page</h2>
+  <h3>This APP has nothing</h3>
+
+</template>
+
+<template name="showpeople">
+  {{#if currentUser}}
+    {{#each p in peoplelist}}
+    <ul>
+      <li>{{> personrow person=p}}</li>
+    </ul>
+    {{/each}}
+    {{else}}
+    <h1>You must log in to access the information.</h1>
+    {{/if}}
+</template>
+
+<template name="personrow">
+  {{person.name}}--{{person.type}}--{{person.country}}
+  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+</template>
+<template name="addperson">
+
+  Name: <input type="text" id="name"><br>
+  Destination Type: <input type="text" id="type"><br>
+  Countries:
+  <label class="checkbox-inline">
+    <input type="checkbox" id="inlineCheckbox1" value="option1"> Nature
+  </label>
+  <label class="checkbox-inline">
+    <input type="checkbox" id="inlineCheckbox2" value="option2"> Urban
+  </label>
+  <label class="checkbox-inline">
+    <input type="checkbox" id="inlineCheckbox" value="option3"> Resorts
+  </label><br>
+  <button id="addperson" class="btn btn-primary">
+    Add to Collection
+  </button>
+
+</template>
+
+<template name="layout">
+  <div class="container">
+  <h1>April DemoApp 2017</h1>
+  {{> yield}}
+  <hr>
+  <a href="/">home</a>
+  <a href="/about">about</a>
+  {{> loginButtons}}
+  <a href="/info">info</a>
+  </div>
+</template>
