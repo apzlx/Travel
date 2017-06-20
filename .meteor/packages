@@ -23,5 +23,6 @@ insecure
 accounts-password
 accounts-google
 accounts-facebook
-ian:accounts-ui-bootstrap-3
 service-configuration
+accounts-ui
+google-config-ui
