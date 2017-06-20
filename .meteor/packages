@@ -19,7 +19,6 @@ iron:router
 twbs:bootstrap
 blaze-html-templates
 autopublish
-insecure
 accounts-password
 accounts-google
 accounts-facebook

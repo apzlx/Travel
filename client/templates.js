@@ -12,9 +12,17 @@ Template.addperson.events({
     instance.$('#type').val("");
     // instance.$('#gender').val("");
     instance.$('#countries').val("");
-    People.insert({name:name,type:type,countries:countries,
-                      owner:Meteor.userId(),
-                      createAt:new Date()});
+
+    var user={name:name,
+              type:type,
+              countries:countries,
+              owner:Meteor.userId(),
+              createAt:new Date()}
+    Meteor.call('user.insert',user);
+    (err,res)=>{
+      console.log('got the answer');
+      console.dir([err,res]);
+    }
   }
 })
 Template.personrow.helpers({
@@ -27,10 +35,11 @@ Template.personrow.events({
     console.dir(this);
     console.log(this);
     console.log(this.person._id);
-    if (this.person.owner==Meteor.userId()){
-      People.remove(this.person._id);
-  }else {
-    alert("You are not allowed to delete this information");
-  }
+    Meteor.call('user.remove',this.person);
+  //   if (this.person.owner==Meteor.userId()){
+  //     People.remove(this.person._id);
+  // }else {
+  //   alert("You are not allowed to delete this information");
+  // }
 }
 })
