@@ -33,10 +33,9 @@
     <td>{{person.name}}</td>
     <td>{{person.type}}</td>
     <td>{{person.countries}}</td>
-    <!-- {{#if owner}} -->
-    <td><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></td>
-
-    <!-- {{/if}} -->
+    {{#if isOwner}}
+      <td><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></td>
+    {{/if}}
   </tr>
 
 </template>
@@ -70,7 +69,6 @@
       <div>
         <label for="type">Please list the types of your desired travel destinations</label>
         <input type="text" id="type">
-
     </div>
     <div>
       <label for="countries">What are some countries you want to visit?</label>
