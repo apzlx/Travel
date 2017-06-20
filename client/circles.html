@@ -1,0 +1,15 @@
+<template name="Circles">
+  <div class="jumbotron">
+    <h1>Circles</h1>
+  </div>
+{{#if currentUser}}
+<div class="bg-primary">
+  {{>showpeople}}
+</div>
+ {{else}}
+  <div class="login">
+    <h1> Log in. </h1>
+    <a href="#" id="aRegister">Create an account</a>
+  </div>
+{{/if}}
+</template>
