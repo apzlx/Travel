@@ -1,6 +1,6 @@
-<head>
+<!-- <head>
   <title>Travel With</title>
-</head>
+</head> -->
 
 <!-- <template name="main">
   <h1>Main page</h1>
@@ -9,13 +9,14 @@
   {{> showpeople}}
 </template> -->
 
-<template name="showpeople">
+<!-- <template name="showpeople">
   {{#if currentUser}}
   <table class="table table-bordered">
     <tr>
       <th>Name</th>
       <th>Desired Destinations</th>
       <th>Countries</th>
+
       <th>Status</th>
     </tr>
     {{#each p in peoplelist}}
@@ -31,8 +32,8 @@
 <template name="personrow">
   <tr>
     <td>{{person.name}}</td>
-    <td>{{person.type}}</td>
     <td>{{person.countries}}</td>
+    <td>{{person.nature_check}}</td>
     {{#if isOwner}}
       <td><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></td>
     {{/if}}
@@ -55,49 +56,39 @@
         <input type="date" id="bday">
       </div>
       <div>
-        Gender:
-      <label class="radio-inline">
-        <input type="radio" name="gender" id="genderM" value="Male"> Male
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="gender" id="genderF" value="Female"> Female
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="gender" id="genderO" value="Other"> Other
-      </label>
+        <label for="gender">Gender:</label>
+        <label class="radio-inline">
+          <input type="radio" name="gender" id="genderM" value="Male"> Male
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="gender" id="genderF" value="Female"> Female
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="gender" id="genderO" value="Other"> Other
+        </label>
       </div>
       <div>
-        <label for="type">Please list the types of your desired travel destinations</label>
-        <input type="text" id="type">
-    </div>
-    <div>
-      <label for="countries">What are some countries you want to visit?</label>
-      <input type="text" id="countries">
-
-  </div>
-    <!-- <fieldset>
-  <legend>Choose your desired travel destinations</legend>
-    <div>
-      <input type="checkbox" id="nature" name="interest" value="nature">
-      <label for="nature">Natural Scenery and Landscapes</label>
-    </div>
-    <div>
-      <input type="checkbox" id="city" name="interest" value="city">
-      <label for="city">Urban Life and City Experience</label>
-    </div>
-    <div>
-      <input type="checkbox" id="resort" name="interest" value="resorts">
-      <label for="resort">Resorts and Theme Parks</label>
-    </div>
-    <div>
-      <input type="checkbox" id="other" name="interest" value="other">
-      <label for="other">Other</label>
-      <input type="text" id="otherValue" name="other">
-    </div>
-    </fieldset> -->
-  </form>
+        <label for="countries">What are some countries you want to visit?</label>
+        <input type="text" id="countries">
+      </div>
+      <fieldset>
+        <legend>Choose your desired travel destinations</legend>
+        <div>
+          <input type="checkbox" id="nature" name="interest" value="nature">
+          <label for="nature">Natural Scenery and Landscapes</label>
+        </div>
+        <div>
+          <input type="checkbox" id="city" name="interest" value="city">
+          <label for="city">Urban Life and City Experience</label>
+        </div>
+        <div>
+          <input type="checkbox" id="resort" name="interest" value="resorts">
+          <label for="resort">Resorts and Theme Parks</label>
+        </div>
+      </fieldset>
+    </form>
   <button id="addperson" class="btn btn-primary">
     Submit
   </button>
 
-</template>
+</template> -->

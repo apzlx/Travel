@@ -1,0 +1,90 @@
+body{
+  /*padding:20px;
+  border: thick solid red;
+  margin:0.2in*/
+  background-color: rgb(63, 146, 191);
+}
+
+h1{
+  background-color:rgb(63, 146, 191);
+  font: bold 36pt monospace,fantasy
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+.flex {
+    /* basic styling */
+    width: 700px;
+    height: 500px;
+    border: 1px solid #555;
+    font: 14px Arial;
+
+    /* flexbox setup */
+    display: flex;
+    flex-direction: row;
+}
+.flex > div {
+    flex: 1 1 auto;
+    width: 30px; /* To make the transition work nicely. (Transitions to/from
+                        "width:auto" are buggy in Gecko and Webkit, at least.
+                        See http://bugzil.la/731886 for more info.) */
+    transition: width 0.7s ease-out;
+    }
+
+    /* colors */
+.flex > div:nth-child(1){ background-color: lightgrey; }
+.flex > div:nth-child(2){ background: lightgrey; }
+.flex > div:nth-child(3){ background: lightgrey; }
+.flex > div:nth-child(4){ background: lightgrey; }
+
+.flex > div:hover {
+    width: 400px;
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.container {
+    position: relative;
+}
+
+.bottomleft {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 18px;
+}

@@ -6,3 +6,83 @@
   <hr>
   {{> showpeople}}
 </template>
+
+<template name="showpeople">
+  {{#if currentUser}}
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Desired Destinations</th>
+      <th>Countries</th>
+      <th>Status</th>
+    </tr>
+    {{#each p in peoplelist}}
+      {{> personrow person=p}}
+    {{/each}}
+  </table>
+    {{else}}
+      <h1>You must log in to access the information.</h1>
+      <hr>
+    {{/if}}
+</template>
+
+<template name="personrow">
+  <tr>
+    <td>{{person.name}}</td>
+    <td>{{person.gender}}</td>
+    <td>
+    {{#each type in person.types}}
+      {{type}}
+      <br>
+    {{/each}}
+
+    </td>
+    <td>{{person.countries}}</td>
+    {{#if isOwner}}
+      <td><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></td>
+    {{/if}}
+  </tr>
+
+</template>
+
+<template name="addperson">
+  <form action="/my-handling-form-page" method="post">
+      <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name">
+      </div>
+      <div>
+          <label for="mail">E-mail:</label>
+          <input type="email" id="email">
+      </div>
+      <div>
+        <label for="bday">Birthday:</label>
+        <input type="date" id="bday">
+      </div>
+      <div>
+        <label for="gender">Gender:</label>
+          <select name="select" id="gender">
+            <option value="male">Male</option>
+            <option value="female" selected>Female</option>
+            <option value="other">Other</option>
+          </select>
+      </div>
+      <div>
+        <label for="countries">What are some countries you want to visit?</label>
+        <input type="text" id="countries">
+      </div>
+      <fieldset>
+        <legend>Choose your desired travel destinations</legend>
+        <div id="typelist">
+            {{#each type in typelist}}
+            <input type="checkbox" name="type" value="{{type}}">{{type}}<br>
+            {{/each}}
+        </div>
+      </fieldset>
+    </form>
+  <button id="addperson" class="btn btn-primary">
+    Submit
+  </button>
+
+</template>
