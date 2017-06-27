@@ -1,24 +1,25 @@
 body{
-  background-color: rgb(63, 146, 191);
+  /*background-color: rgb(129, 175, 219);*/
+  background-color:rgb(129, 175, 219);
+
 }
 
 h1{
   color: rgb(255, 255, 255);
-  background-color:rgb(63, 146, 191);
+  background-color:rgb(129, 175, 219);
   font: 40pt impact,palatino,fantasy;
 
 }
 h2{
   color: rgb(255, 255, 255);
-  background-color:rgb(63, 146, 191);
+  background-color:rgb(129, 175, 219);
   font: 36pt fantasy;
 
 }
 
 h3{
-  color:rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
   font: bold 30pt trebuchet,fantasy;
-
 }
 table {
   border-collapse: collapse;
@@ -220,7 +221,7 @@ button:hover {
 span.psw {
     float: right;
     padding-top: 16px;
-    text-decoration-color: rgb(63, 146, 191);
+    text-decoration-color: rgb(129, 175, 219);
 }
 
 /* The Modal (background) */
@@ -384,27 +385,37 @@ span.psw {
 }
 .flex {
         /* basic styling */
-        width: 1000px;
-        height: 200px;
-        border: 1px solid #555;
-        font: 20px fantasy;
+    width: 1000px;
+    height: 200px;
+    border: 1px solid #555;
+    font: 20px fantasy;
 
         /* flexbox setup */
-        display: flex;
-        flex-direction: row;
-    }
+    display: flex;
+    flex-direction: row;
+}
 
-    .flex > div {
-        flex: 1 1 auto;
-        width: 30px;
-        transition: width 0.7s ease-out;
-    }
+.flex > div {
+    flex: 1 1 auto;
+    width: 30px;
+    transition: width 0.7s ease-out;
+}
 
     /* colors */
-    .flex > div:nth-child(1){ background: rgb(247, 205, 98); }
-    .flex > div:nth-child(2){ background: rgb(255, 255, 255); }
-    .flex > div:nth-child(3){ background: rgb(247, 205, 98); }
+.flex > div:nth-child(1){ background: rgb(247, 205, 98); }
+.flex > div:nth-child(2){ background: rgb(255, 255, 255); }
+.flex > div:nth-child(3){ background: rgb(247, 205, 98); }
 
-    .flex > div:hover {
-        width: 200px;
-    }
+.flex > div:hover {
+    width: 200px;
+}
+login-buttons{
+  background-color: rgb(247, 183, 81);
+  font-size: 20px;
+  color: white;
+  padding: 14px 44px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
