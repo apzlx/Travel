@@ -8,15 +8,17 @@ Template.adduser.events({
     instance.$('#email').val("");
     instance.$('#password').val("");
 
-    var user={email:email,
+    var newuser={email:email,
               password:password,
               owner:Meteor.userId(),
               createAt:new Date()}
 
-    Meteor.call('user.insert',user);
+    Meteor.call('newuser.insert',newuser);
     (err,res)=>{
       console.log('got the answer');
       console.dir([err,res]);
     }
+    console.log(User.find());
   }
+
 })

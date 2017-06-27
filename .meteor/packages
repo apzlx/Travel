@@ -20,7 +20,6 @@ blaze-html-templates
 autopublish
 accounts-password
 accounts-google
-accounts-facebook
 service-configuration
 accounts-ui
 google-config-ui
