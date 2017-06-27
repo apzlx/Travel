@@ -20,5 +20,6 @@ blaze-html-templates
 accounts-password
 accounts-google
 service-configuration
-accounts-ui
+accounts-ui-unstyled
 google-config-ui
+autopublish
