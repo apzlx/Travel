@@ -1,0 +1,41 @@
+<template name="switzerland">
+
+    <div class="swizCircle">
+    <h1>Backpacker in Switzerland!</h1>
+    <h3>Join our circle if you love outdoor activities and love Switzerland!<br>
+    Share your experience or express your concerns!</h3>
+  </div>
+  {{> joinCircle}}
+  {{> timeline}}
+</template>
+<template name="timeline">
+  <h1>Status</h1>
+  {{> makepost}}
+  <h1> Posts of this Circle</h1>
+  {{#each p in posts}}
+    {{> showpost p=p}}
+  {{/each}}
+</template>
+
+<template name="makepost">
+  <textarea id="posttext" cols="100%" rows="5" placeholder="What do you want to share?">
+  </textarea>
+  <button id="submit">Post status</button>
+</template>
+
+<template name="showpost">
+  <div class="post">
+    {{p.createdAt}}<br>
+    {{p.name}}<br>
+    {{p.text}}
+  </div>
+</template>
+
+<template name="joinCircle">
+    {{#if isMember}}
+      <button id="js-exit">Exit the Circle</button>
+      {{else}}
+
+        <button id="js-join">Join the Circle</button>
+      {{/if}}
+</template>

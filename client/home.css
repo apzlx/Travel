@@ -39,6 +39,20 @@ td, th {
   padding: 0.5rem;
   text-align: left;
 }
+.swizCircle{
+  background-image:url("http://www.wildernesstravel.com/images/trips/europe/switzerland/switzerland-the-via-alpina/1-slide-switzerland-via-alpina-lake-oeschinensee-hikers-pano.jpg");
+  max-height:600px;
+}
+.newCircleButton{
+  background-color: rgb(247, 205, 98); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
 .arrowicon{
   max-width: 10px;
   max-height:10px;
@@ -284,14 +298,15 @@ img {
 }
 .flex {
         /* basic styling */
-    width: 1000px;
-    height: 200px;
+    width: 1500px;
+    height: 400px;
     border: 1px solid #555;
-    font: 20px fantasy;
+    font: 32px fantasy;
 
         /* flexbox setup */
     display: flex;
     flex-direction: row;
+    color:rgb(255,255,255);
 }
 
 .flex > div {
@@ -301,9 +316,12 @@ img {
 }
 
     /* colors */
-.flex > div:nth-child(1){ background: rgb(247, 205, 98); }
-.flex > div:nth-child(2){ background: rgb(255, 255, 255); }
-.flex > div:nth-child(3){ background: rgb(247, 205, 98); }
+.flex > div:nth-child(2){
+  background-image: url("https://glasutnamladitehora.files.wordpress.com/2016/07/train_from_italy_to_switzerland_0.jpg?w=712");
+}
+/*rgb(247, 205, 98)*/
+.flex > div:nth-child(1){ background-image: url("http://www.oushinet.com/u/cms/www/image/20170513/20170513022237_38.png"); }
+.flex > div:nth-child(3){ background-image: url("http://cdn.history.com/sites/2/2014/01/roman-forum-P.jpeg") }
 
 .flex > div:hover {
     width: 200px;
