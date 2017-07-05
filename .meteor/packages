@@ -17,9 +17,8 @@ ecmascript@0.8.0              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.3            # Server-side component of the `meteor shell` command
 iron:router
 blaze-html-templates
+accounts-ui
 accounts-password
 accounts-google
 service-configuration
-accounts-ui-unstyled
 google-config-ui
-autopublish

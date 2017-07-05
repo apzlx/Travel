@@ -1,93 +1,15 @@
 <template name="layout">
 	<div class="container">
+		<div class="topnav" id="myTopav button">
+			<a href="{{pathFor 'home'}}" class="topnav-logo">On the Road</a>
+			<a href="/destinations">Destinations</a>
+			<a href="/circles">Circles</a>
+			<a href="/profile">Profile</a>
+		</div>
+		<div style="float:right;">{{> loginButtons}}</div>
+	</div>
 
-		<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
-		<!-- <nav class="navbar navbar-default"> -->
-			<!-- Collect the nav links, forms, and other content for toggling -->
-
-			<div class="topnav" id="myTopav button">
-				<a href="{{pathFor 'home'}}" class="topnav-logo">On the Road</a>
-				<a href="/destinations">Destinations</a>
-				<a href="/circles">Circles</a>
-				<a href="/profile">Profile</a>
-				{{> loginButtons}}
-				<button class="loginbutton" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-				<div id="id01" class="modal">
-					<form class="modal-content animate" action="/action_page.php">
-    				<!-- <div class="imgcontainer">
-      				<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      				<img src="img_avatar2.png" alt="Avatar" class="avatar">
-    				</div> -->
-    				<div class="container" style="text-align:center">
-      				<label><b>Username</b></label>
-      				<input type="text" placeholder="Enter Username" name="uname" required>
-
-      				<label><b>Password</b></label>
-      				<input type="password" placeholder="Enter Password" name="psw" required>
-
-      				<button type="button" class="loginbutton">Login</button>
-      				<input type="checkbox" checked="checked"> Remember me
-    				</div>
-						<div class="container" style="background-color:#f1f1f1">
-      				<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn loginbutton">Cancel</button>
-      				<span class="psw"> <a href="#">Forgot password?</a></span>
-    				</div>
-  				</form>
-				</div>
-				<button class="loginbutton" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button>
-				<div id="id02" class="modal">
-  				<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
-  				<form class="modal-content animate" action="/action_page.php">
-    				<div class="container">
-      				<label><b>Email</b></label>
-      				<input type="text" id="email" placeholder="Enter Email" name="email" required>
-							<label><b>Password</b></label>
-      				<input type="password" id="password" placeholder="Enter Password" name="psw" required>
-							<label><b>Repeat Password</b></label>
-      				<input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-      				<input type="checkbox" checked="checked"> Remember me
-      				<!-- <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> -->
-							<div class="clearfix">
-        				<button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn loginbutton">Cancel</button>
-        				<button type="button" class="signupbtn loginbutton">Sign Up</button>
-								{{adduser}}
-      				</div>
-    				</div>
-  				</form>
-				</div>
-			</div>
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-var signup = document.getElementById('id02');
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-				</div>
-		    <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      	<ul class="nav navbar-nav">
-							<li><a href="/destinations">Destinations</a></li>
-							<li><a href="/circles">Circles</a></li>
-							<li><a href="/profile">Profile</a></li>
-						</ul>
-			    <ul class="nav navbar-nav navbar-right">
-			            {{> loginButtons}}
-			    </ul>
-		    </div>-->
-
-		<!-- </nav> -->
-		<!-- Here is where the actual content of the page gets inserted by the router! -->
 		{{> yield}}
-
-
-</template>
-
-<template name="adduser">
 
 
 </template>

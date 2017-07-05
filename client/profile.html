@@ -17,7 +17,7 @@
       <th>Countries</th>
       <th>Status</th>
     </tr>
-    {{#each p in peoplelist}}
+    {{#each p in userlist}}
       {{> personrow person=p}}
     {{/each}}
   </table>
@@ -36,19 +36,18 @@
       {{type}}
       <br>
     {{/each}}
-
     </td>
     <td>{{person.countries}}</td>
     {{#if isOwner}}
-      <td><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></td>
+      <td><span aria-hidden="true">x</span></td>
     {{/if}}
   </tr>
 
 </template>
 
 <template name="addperson">
-  <div class="form-style-5">
-  <form action="/my-handling-form-page" method="post">
+  <div class="profile-form">
+  <form method="post">
       <div>
           <label for="name">Name:</label>
           <input type="text" id="name">
@@ -69,18 +68,26 @@
         <label for="countries">What are some countries you want to visit?</label>
         <input type="text" id="countries">
       </div>
+      <!-- <fieldset>
+        <legend>Select continents you want to visit</legend>
+        <div id="continentlist">
+            {{#each type in continentlist}}
+              <input type="checkbox" name="continent" value="{{continent}}">{{continent}}<br>
+            {{/each}}
+        </div>
+      </fieldset> -->
       <fieldset>
         <legend>Choose your desired travel destinations</legend>
-        <div id="typelist label">
+        <div id="typelist">
             {{#each type in typelist}}
-            <input type="checkbox" name="type" value="{{type}}">{{type}}<br>
+              <input type="checkbox" name="type" value="{{type}}">{{type}}<br>
             {{/each}}
         </div>
       </fieldset>
     </form>
 
-  <button id="addperson" class="loginbutton">
-    Submit
+  <button id="addperson">
+    Update
   </button>
 </div>
 </template>

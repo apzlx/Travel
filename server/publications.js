@@ -1,7 +1,7 @@
-// Meteor.publish('people',function(){
-//   return Bios.find();
-//
-// })
-// Meteor.publish('people',function(){
-//   return People.find();
+Meteor.publish('users',function(){
+  return User.find();
+
+})
+// Meteor.publish('users',function(){
+//   return User.find();
 // })

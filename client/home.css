@@ -10,7 +10,7 @@ body{
 h1{
   color: rgb(255, 255, 255);
   background-color:rgb(171, 202, 232);
-  font: 40pt impact,palatino,fantasy;
+  font: 40pt lucida console,palatino,fantasy;
 }
 h2{
   color: rgb(255, 255, 255);
@@ -189,124 +189,7 @@ img {
     left: 16px;
     font-size: 18px;
 }
-
-/*login button*/
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-.loginbutton {
-    background-color: rgb(247, 183, 81);
-    font-size: 20px;
-    color: white;
-    padding: 14px 44px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-.loginbutton:hover {
-    opacity: 0.8;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: rgb(199, 48, 37);
-}
-.signupbtn {float:left;width:50%}
-/* Center the image and position the close button */
-
-.container {
-    padding: 16px;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-    text-decoration-color: rgb(171, 202, 232);
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 30%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button (x) */
-.close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: red;
-    cursor: pointer;
-}
-/* Clear floats */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/* Add Zoom Animation */
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(1)}
-}
-
-@keyframes animatezoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-}
-.form-style-5{
+.profile-form{
     max-width: 500px;
     padding: 10px 20px;
     background: #f4f7f8;
@@ -317,24 +200,24 @@ span.psw {
     font-family: trebuchet, "Times New Roman", Times, serif;
 
 }
-.form-style-5 fieldset{
+.profile-form fieldset{
     border: none;
 }
-.form-style-5 legend {
+.profile-form legend {
     font-size: 1.4em;
     margin-bottom: 10px;
     color:rgb(247, 183, 81);
 }
-.form-style-5 label {
+.profile-form label {
     display: block;
     margin-bottom: 8px;
     font-size:1.4em;
     color:rgb(247, 183, 81);
     font: trebuchet;
 }
-.form-style-5 input[type="text"],
-.form-style-5 textarea,
-.form-style-5 select {
+.profile-form input[type="text"],
+.profile-form textarea,
+.profile-form select {
     font-family: Georgia, "Times New Roman", Times, serif;
     background: rgba(255,255,255,.1);
     border: none;
@@ -354,16 +237,16 @@ span.psw {
     margin-bottom: 30px;
 
 }
-.form-style-5 input[type="text"]:focus,
-.form-style-5 textarea:focus,
-.form-style-5 select:focus{
+.profile-form input[type="text"]:focus,
+.profile-form textarea:focus,
+.profile-form select:focus{
     background: #d2d9dd;
 }
-.form-style-5 select{
+.profile-form select{
     -webkit-appearance: menulist-button;
     height:35px;
 }
-.form-style-5 .number {
+.profile-form .number {
     background: #1abc9c;
     color: #fff;
     height: 30px;
@@ -377,8 +260,8 @@ span.psw {
     border-radius: 15px 15px 15px 0px;
 }
 
-.form-style-5 input[type="submit"],
-.form-style-5 input[type="button"]
+.profile-form input[type="submit"],
+.profile-form input[type="button"]
 {
     position: relative;
     display: block;
@@ -394,8 +277,8 @@ span.psw {
     border-width: 1px 1px 3px;
     margin-bottom: 10px;
 }
-.form-style-5 input[type="submit"]:hover,
-.form-style-5 input[type="button"]:hover
+.profile-form input[type="submit"]:hover,
+.profile-form input[type="button"]:hover
 {
     background: #109177;
 }
@@ -424,16 +307,6 @@ span.psw {
 
 .flex > div:hover {
     width: 200px;
-}
-login-buttons{
-  background-color: rgb(247, 183, 81);
-  font-size: 20px;
-  color: white;
-  padding: 14px 44px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
 }
 a {
   -webkit-transition: color 0.25s ease-in-out;
