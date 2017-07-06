@@ -40,15 +40,6 @@ Template.addperson.events({
               owner:Meteor.userId(),
               createAt:new Date()
             };
-    // User.insert({name:name,
-    //           gender:gender,
-    //           // countries:countries,
-    //           continents:continents,
-    //           types:types,
-    //           owner:Meteor.userId(),
-    //           createAt:new Date()
-    //         });
-
     Meteor.call('type.insert',type);
     (err,res)=>{
       console.log('got the answer');
@@ -63,7 +54,6 @@ Template.addperson.events({
 Template.personrow.helpers({
   isOwner(){console.dir(this);
     return this.person.owner == Meteor.userId()}
-
 })
 Template.personrow.events({
   'click span'(elt,instance){
@@ -71,10 +61,5 @@ Template.personrow.events({
     console.log(this);
     console.log(this.person._id);
     Meteor.call('type.remove',this.person);
-  //   if (this.person.owner==Meteor.userId()){
-  //     People.remove(this.person._id);
-  // }else {
-  //   alert("You are not allowed to delete this information");
-  // }
 }
 })

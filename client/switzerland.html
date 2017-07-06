@@ -1,13 +1,37 @@
 <template name="switzerland">
-
-    <div class="swizCircle">
+  <div class="swizCircle">
     <h1>Backpacker in Switzerland!</h1>
-    <h3>Join our circle if you love outdoor activities and love Switzerland!<br>
-    Share your experience or express your concerns!</h3>
+    <h4>Join our circle if you love outdoor activities and love Switzerland!<br>
+    Share your experience or ask questions!</h4>
   </div>
-  {{> joinCircle}}
+  <!-- {{> joinCircle}} -->
+  <!-- {{> showmember}} -->
   {{> timeline}}
 </template>
+
+<template name="showmember">
+  <table>
+    <thead>
+      <tr>
+        <th>Member Name</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each m in memberlist}}
+        {{>memberrow m=m}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="memberrow">
+  <tr>
+    <td>{{m.member}}</td>
+    <td> </td>
+  </tr>
+</template>
+
 <template name="timeline">
   <h1>Status</h1>
   {{> makepost}}
@@ -24,18 +48,31 @@
 </template>
 
 <template name="showpost">
-  <div class="post">
+  <ul>
+
+  {{#each p in postlist}}
+
+    {{> postrow p=p}}
+  
+  {{/each}}
+</ul>
+</template>
+<template name="postrow">
+  <li>
     {{p.createdAt}}<br>
     {{p.name}}<br>
     {{p.text}}
-  </div>
+    ::before
+    <button id="enableEdit">edit</button>
+    posts:
+    <input type="text" id="newPosts"><br>
+    <button id="finishEdit"> Finish Editing</button>
+  </li>
 </template>
-
 <template name="joinCircle">
-    {{#if isMember}}
-      <button id="js-exit">Exit the Circle</button>
-      {{else}}
-
-        <button id="js-join">Join the Circle</button>
-      {{/if}}
+    <!-- {{#if isMember}}
+      <button class="newCircleButton" id="js-exit">Exit the Circle</button>
+    {{else}} -->
+      <button id="js-join">Join the Circle</button>
+    <!-- {{/if}} -->
 </template>
