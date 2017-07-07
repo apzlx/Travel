@@ -1,9 +1,8 @@
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
+import {ReactiveDict}from 'meteor/reactive-dict';
 // Template.timeline.helpers({
 //   posts(){
-//     // var myCircle = Members.find({owner:Meteor.userId()}).fetch();
-//     // var memberList = _.map(myCircle,function(x){return x.member});
-//     // console.dir(memberList);
-//     // return Posts.find({owner:{$in:memberList}},{sort:{createdAt:-1}})
 //     return Posts.find();
 //   }
 // })
@@ -24,24 +23,28 @@ Template.showmember.helpers({
 })
 Template.makepost.events({
   "click #submit"(event, instance){
-    var user = User.findOne({owner:Meteor.userId()});
+    // var user = User.findOne({owner:Meteor.userId()});
+    var name=User.findOne({owner:Meteor.userId()}).name;
     var now = new Date();
     var text = instance.$("#posttext").val();
     var post = {
       owner:Meteor.userId(),
-      name:user.name,
+      name:name,
       createdAt: now,
-      text: text
+      text: text,
     };
     console.dir(post);
-    Posts.insert(post);
+
+    Meteor.call('post.insert',post);
+    instance.$('#text').val("");
+    instance.$('#name').val("");
+
   }
 })
 Template.joinCircle.helpers({
   isMember(){
     console.log(Members.findOne({owner:Meteor.userId()}))
     return Members.findOne({owner:Meteor.userId()})
-
   }
 })
 
@@ -63,14 +66,14 @@ Template.joinCircle.events({
   // },
 
 })
-Template.postrow.events({
-     'click span'(elt,instance){
-    //  console.dir(this);
-      //console.log(this);
-      console.log(this.post._id);
-      Meteor.call('post.remove',this.comments);
-    }
-})
+// Template.postrow.events({
+//      'click span'(elt,instance){
+//     //  console.dir(this);
+//       //console.log(this);
+//       console.log(this.post._id);
+//       Meteor.call('post.remove',this.comments);
+//     }
+// })
 Template.postrow.onCreated(function(){
   this.Dict = new ReactiveDict();
   this.Dict.set("Editing",false);
@@ -82,23 +85,23 @@ Template.postrow.onCreated(function postrowOnCreated() {
 
 
 Template.postrow.events({
-     'click button[id=enableEdit]'(event,instance){
+     'click #enableEdit'(event,instance){
       instance.Editing.set(true);
       console.log(instance.Editing.get());
     }
 })
 
 Template.postrow.events({
-     'click button[id=finishEdit]'(elt,instance){
-      const oldPost = this.post.text;
+     'click #finishEdit'(elt,instance){
+      const oldPost = this.p.text;
       const newPost = instance.$('#newPost').val();
-      const name = this.post.name;
+      const name = this.p.name;
       // console.log("this id:"+this._id);
       // console.log("this comment id:"+this.comments._id);
-      // console.log("old comments: "+oldComments);
+      console.log("old comments: "+oldPost);
       // console.log("new comments: "+newComments);
       // console.log("this comments: "+this.comments);
-      var id = this.post.owner;
+      var id = this.p._id;
       console.log("var id:"+id);
       Meteor.call('post.edit',id,newPost);
       instance.Editing.set(false);

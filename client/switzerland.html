@@ -1,6 +1,6 @@
 <template name="switzerland">
-  <div class="swizCircle">
-    <h1>Backpacker in Switzerland!</h1>
+  <div>
+    <h1 class="swizCircle"><br>Backpacker in Switzerland!<br><br></h1>
     <h4>Join our circle if you love outdoor activities and love Switzerland!<br>
     Share your experience or ask questions!</h4>
   </div>
@@ -36,24 +36,19 @@
   <h1>Status</h1>
   {{> makepost}}
   <h1> Posts of this Circle</h1>
-  {{#each p in posts}}
-    {{> showpost p=p}}
-  {{/each}}
+  {{> showpost}}
 </template>
 
 <template name="makepost">
   <textarea id="posttext" cols="100%" rows="5" placeholder="What do you want to share?">
   </textarea>
-  <button id="submit">Post status</button>
+  <button id="submit">Post</button>
 </template>
 
 <template name="showpost">
   <ul>
-
   {{#each p in postlist}}
-
     {{> postrow p=p}}
-  
   {{/each}}
 </ul>
 </template>
@@ -61,11 +56,11 @@
   <li>
     {{p.createdAt}}<br>
     {{p.name}}<br>
-    {{p.text}}
-    ::before
-    <button id="enableEdit">edit</button>
+    {{p.text}}<br>
+    <!-- ::before -->
+    <!-- <button id="enableEdit">edit</button> -->
     posts:
-    <input type="text" id="newPosts"><br>
+    <input type="text" id="newPost"><br>
     <button id="finishEdit"> Finish Editing</button>
   </li>
 </template>
