@@ -1,11 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import {ReactiveDict}from 'meteor/reactive-dict';
-// Template.timeline.helpers({
-//   posts(){
-//     return Posts.find();
-//   }
-// })
+
 if(Meteor.isClient){
     Template.joinCircle.onCreated(function(){
       // this.state=new ReactiveDict();
@@ -27,6 +23,7 @@ Template.makepost.events({
     var name=User.findOne({owner:Meteor.userId()}).name;
     var now = new Date();
     var text = instance.$("#posttext").val();
+
     var post = {
       owner:Meteor.userId(),
       name:name,
@@ -64,58 +61,28 @@ Template.joinCircle.events({
   //   console.log('removing'); console.dir(z);
   //   Members.remove(z._id);
   // },
-
 })
-// Template.postrow.events({
-//      'click span'(elt,instance){
-//     //  console.dir(this);
-//       //console.log(this);
-//       console.log(this.post._id);
-//       Meteor.call('post.remove',this.comments);
-//     }
-// })
 Template.postrow.onCreated(function(){
-  this.Dict = new ReactiveDict();
-  this.Dict.set("Editing",false);
-  this.Dict.set("id");
-})
-Template.postrow.onCreated(function postrowOnCreated() {
-  this.Editing= new ReactiveVar(false);
-});
-
-
-Template.postrow.events({
-     'click #enableEdit'(event,instance){
-      instance.Editing.set(true);
-      console.log(instance.Editing.get());
-    }
-})
-
-Template.postrow.events({
-     'click #finishEdit'(elt,instance){
-      const oldPost = this.p.text;
-      const newPost = instance.$('#newPost').val();
-      const name = this.p.name;
-      // console.log("this id:"+this._id);
-      // console.log("this comment id:"+this.comments._id);
-      console.log("old comments: "+oldPost);
-      // console.log("new comments: "+newComments);
-      // console.log("this comments: "+this.comments);
-      var id = this.p._id;
-      console.log("var id:"+id);
-      Meteor.call('post.edit',id,newPost);
-      instance.Editing.set(false);
-    }
+  this.dictionary = new ReactiveDict();
+  this.dictionary.set("showEditField",false);
 })
 Template.postrow.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-
-  isEditing() {
-    return Template.instance().Editing.get();
-
+  showEditField: function(){
+    return Template.instance().dictionary.get("showEditField");
   }
-
-    //&& this._id=id
+})
+Template.postrow.events({
+    'click span'(elt,instance){
+      console.log(this.p._id);
+      Meteor.call('post.remove',this.p);
+    },
+    'click #enableEdit'(event,template){
+       template.dictionary.set("showEditField",true);
+    },
+     'click #finishEdit'(elt,template){
+      const post_id = this.p._id;
+      const newPost = $('#newPost_'+post_id).val();
+      Meteor.call('post.edit',post_id,newPost);
+      template.dictionary.set("showEditField",false);
+    }
 })

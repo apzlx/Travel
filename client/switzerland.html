@@ -54,14 +54,17 @@
 </template>
 <template name="postrow">
   <li>
-    {{p.createdAt}}<br>
     {{p.name}}<br>
     {{p.text}}<br>
+    {{p.createdAt}}<br>
     <!-- ::before -->
-    <!-- <button id="enableEdit">edit</button> -->
-    posts:
-    <input type="text" id="newPost"><br>
-    <button id="finishEdit"> Finish Editing</button>
+    <button id="enableEdit">edit</button>
+    {{#if showEditField}}
+      posts:
+      <input type="text" id="newPost_{{p._id}}"><br>
+      <button id="finishEdit"> Finish Editing</button>
+      <span class="fa fa-times" aria-hidden="true"></span>
+    {{/if}}
   </li>
 </template>
 <template name="joinCircle">
