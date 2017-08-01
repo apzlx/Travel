@@ -4,7 +4,6 @@ import {ReactiveDict}from 'meteor/reactive-dict';
 
 if(Meteor.isClient){
     Template.joinCircle.onCreated(function(){
-      // this.state=new ReactiveDict();
       Meteor.subscribe('members');
     });
     Template.makepost.onCreated(function(){
@@ -19,7 +18,6 @@ Template.showmember.helpers({
 })
 Template.makepost.events({
   "click #submit"(event, instance){
-    // var user = User.findOne({owner:Meteor.userId()});
     var name=User.findOne({owner:Meteor.userId()}).name;
     var now = new Date();
     var text = instance.$("#posttext").val();
@@ -46,15 +44,16 @@ Template.joinCircle.helpers({
 })
 
 Template.joinCircle.events({
-  "click button"(event, instance){
-    var member={owner:Meteor.userId()};
+  "click #js-join"(event, instance){
+
+    var member=User.findOne({owner:Meteor.userId()});
     Meteor.call('member.insert',member);
     (err,res)=>{
       console.log('got the answer');
       console.dir([err,res]);
     }
     console.log('adding'+Meteor.userId());
-    console.log(Members.find());
+    console.log(Members.name);
   }
   // "click #js-exit"(event,instance){
   //   var z = Members.findOne({owner:Meteor.userId()});
@@ -73,7 +72,6 @@ Template.postrow.helpers({
 })
 Template.postrow.events({
     'click span'(elt,instance){
-      console.log(this.p._id);
       Meteor.call('post.remove',this.p);
     },
     'click #enableEdit'(event,template){

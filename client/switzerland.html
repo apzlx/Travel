@@ -42,7 +42,7 @@
 <template name="makepost">
   <textarea id="posttext" cols="100%" rows="5" placeholder="What do you want to share?">
   </textarea>
-  <button id="submit">Post</button>
+  <button id="submit" class="postbutton">Post</button>
 </template>
 
 <template name="showpost">
@@ -54,16 +54,14 @@
 </template>
 <template name="postrow">
   <li>
-    {{p.name}}<br>
+    <strong>{{p.name}}</strong> says: <br>
     {{p.text}}<br>
     {{p.createdAt}}<br>
-    <!-- ::before -->
-    <button id="enableEdit">edit</button>
+    <button id="enableEdit" class="postbutton">edit</button>
+    <span class="fa fa-times" aria-hidden="true"></span><br>
     {{#if showEditField}}
-      posts:
-      <input type="text" id="newPost_{{p._id}}"><br>
-      <button id="finishEdit"> Finish Editing</button>
-      <span class="fa fa-times" aria-hidden="true"></span>
+      <textarea cols="100%" rows="2" id="newPost_{{p._id}}" placeholder="Enter your edited post"></textarea>
+      <button id="finishEdit" class="postbutton"> Finish Editing</button>
     {{/if}}
   </li>
 </template>
