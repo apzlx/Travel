@@ -483,3 +483,6 @@ input[type="date"], focus {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
 }
+#login-dropdown-list {
+  position:initial;
+}
